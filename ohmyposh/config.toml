@@ -19,10 +19,10 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 
 	[[blocks.segments]]
 		type = 'path'
-		style = 'powerline'
-		powerline_symbol = ''
+		style = 'diamond'
+		leading_diamond = ''
 		foreground = 'p:white'
-		background = '#010101'
+		background = 'p:black'
 		template = '  {{ .Path }} '
 
 		[blocks.segments.properties]
@@ -58,8 +58,8 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 		foreground = 'p:white'
 		background = 'p:deepblue'
 		background_templates = ['{{ if gt .Code 0 }}p:deepred{{ end }}']
-		leading_diamond = '<transparent,background></>'
-		trailing_diamond = '<background,transparent></>'
+		leading_diamond = ''
+		trailing_diamond = ''
 		template = ' {{ .String }} '
 
 		[blocks.segments.properties]
@@ -74,8 +74,8 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 		style = 'diamond'
 		foreground = 'p:black'
 		background = 'p:grey'
-		leading_diamond = '<p:grey,transparent></>'
-		trailing_diamond = '<transparent,p:grey></>'
+		leading_diamond = ''
+		trailing_diamond = ''
 		template = ' 󰞷 {{ .Name }} '
 
 	[[blocks.segments]]
@@ -83,8 +83,8 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 		style = 'diamond'
 		foreground = 'p:white'
 		background = 'p:black'
-		leading_diamond = '<p:black,transparent></>'
-		trailing_diamond = '<transparent,p:black></>'
+		leading_diamond = ''
+		trailing_diamond = ''
 		template = ' 󱎫 {{ .FormattedMs }} '
 
 		[blocks.segments.properties]
@@ -97,8 +97,8 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 		style = 'diamond'
 		foreground = 'p:white'
 		background = 'p:deepgreen'
-		leading_diamond = '<p:deepgreen,transparent></>'
-		trailing_diamond = '<transparent,p:deepgreen></>'
+		leading_diamond = ''
+		trailing_diamond = ''
 		template = ' {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}% '
 
 		[blocks.segments.properties]
@@ -112,8 +112,8 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 		style = 'diamond'
 		foreground = 'p:white'
 		background = 'p:darkpink'
-		leading_diamond = '<p:darkpink,transparent></>'
-		trailing_diamond = '<transparent,p:darkpink></>'
+		leading_diamond = ''
+		trailing_diamond = ''
 		template = '  {{ round .PhysicalPercentUsed .Precision }} '
 
 	[[blocks.segments]]
