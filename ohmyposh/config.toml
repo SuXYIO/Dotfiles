@@ -136,7 +136,7 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 	template = ' '
 
 [palette]
-	black = '#000000'
+	black = '#010101'
 	blue = '#0000ff'
 	cyan = '#00ffff'
 	darkcyan = '#008888'
