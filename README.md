@@ -10,6 +10,7 @@ Including:
 - Ohmyposh
 - Kitty
 - Tmux
+- Bashrc
 
 ## Usage :calling:
 
