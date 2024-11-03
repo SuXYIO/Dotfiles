@@ -9,6 +9,7 @@ Including:
 - Zshrc
 - Ohmyposh
 - Kitty
+- Tmux
 
 ## Usage :calling:
 
@@ -25,4 +26,5 @@ For example: `stow zshrc` links the `zshrc` package.
 ## Note :memo:
 
 The `kitty/.config/kitty/theme_ayu.conf` is generated from `kitten themes`.  
+The `tmux/` config files are cloned from [gpakosz/.tmux](https://github.com/gpakosz/.tmux), `tmux/.tmux.conf.local` is edited by myself.  
 
