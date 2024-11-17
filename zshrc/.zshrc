@@ -61,7 +61,6 @@ export EDITOR='nvim'
 # Aliases
 alias lg='lazygit'
 alias n='nvim'
-alias m='make'
 alias s='spf'
 alias mingw-gcc-x86='x86_64-w64-mingw32-gcc'
 alias mingw-gcc-i686='i686-w64-mingw32-gcc'

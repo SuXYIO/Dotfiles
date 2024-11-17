@@ -14,7 +14,19 @@ Including:
 
 ## Usage :calling:
 
-The __[GNU Stow](https://www.gnu.org/software/stow)__ is recommended.  
+### Setup.sh
+
+Install __[GNU Stow](https://www.gnu.org/software/stow)__.  
+Run the `setup.sh` install script.  
+```bash
+./setup.sh
+```
+
+This script also automates __Github Codespaces__, and automatically excludes packages for codespaces.  
+
+### Manually
+
+__[GNU Stow](https://www.gnu.org/software/stow)__ is recommended.  
 Run
 ```bash
 stow foo
