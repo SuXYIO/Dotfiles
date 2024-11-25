@@ -8,6 +8,7 @@ More complex config (such as `NeoVim`) are in my other repos.
 Including:  
 - Zshrc
 - Ohmyposh
+- LazyGit
 - Kitty
 - Tmux
 - Bashrc

@@ -1,0 +1,8 @@
+keybinding:
+  universal:
+    # Swap default push and pull
+    pushFiles: p
+    pullFiles: P
+
+gui:
+  nerdFontsVersion: "3"

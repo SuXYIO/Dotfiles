@@ -2,11 +2,13 @@
 if [ -n $SSH_CONNECTION ] || [ -n $SSH_CLIENT ] || [ -n $SSH_TTY]; then
 	# local
 	setopt HIST_IGNORE_SPACE
-else
-	# SSH
 fi
 
 # env
+export XDG_CONFIG_HOME="$HOME/.config"
+# zsh
+export HISTSIZE=512
+export SAVEHIST=512
 # lang
 export LANG=en_US.UTF-8
 # use brew git
@@ -33,21 +35,16 @@ export PATH=$PATH:/usr/local/opt/john-jumbo/share/john
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/3.3.0/bin:$PATH"
 
-# Integration
-# fzf
-source <(fzf --zsh)
-# thefuck
-eval $(thefuck --alias fu)
-
 # Completion
 setopt HIST_IGNORE_ALL_DUPS
 autoload -Uz compinit && compinit
 
 # Plugins
-source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+prefix="/usr/local/"
+source ${prefix}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ${prefix}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${prefix}/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+source ${prefix}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 zvm_after_init_commands+=("bindkey '^[[A' history-substring-search-up; bindkey '^[[B' history-substring-search-down")
 
