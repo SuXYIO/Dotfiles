@@ -9,6 +9,8 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # zsh
 export HISTSIZE=512
 export SAVEHIST=512
+# pager
+export MANPAGER='nvim +Man!'
 # lang
 export LANG=en_US.UTF-8
 # use brew git

@@ -12,6 +12,7 @@ Including:
 - Kitty
 - Tmux
 - Bashrc
+- Git
 
 ## Usage :calling:
 

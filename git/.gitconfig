@@ -1,0 +1,33 @@
+[safe]
+	directory = /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core
+	directory = /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core
+	directory = /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core
+	directory = /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask
+[user]
+	name = SuXYIO
+	email = SuXYMC@163.com
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[init]
+	defaultbranch = main
+[core]
+	ignorecase = false
+	excludesfile = /Users/suxy/.gitignore_global
+	editor = nvim
+	pager = less
+[push]
+	default = simple
+[credential "https://github.com"]
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/usr/local/bin/gh auth git-credential
+[color]
+	ui = true
+[http]
+	sslbackend = openssl
+	sslVerify = true
