@@ -4,7 +4,7 @@
 	directory = /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core
 	directory = /usr/local/Homebrew/Library/Taps/homebrew/homebrew-cask
 [user]
-	name = SuXYIO
+	name = SueXY
 	email = SuXYMC@163.com
 [filter "lfs"]
 	required = true
