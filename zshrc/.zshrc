@@ -37,6 +37,9 @@ export PATH=$PATH:/usr/local/opt/john-jumbo/share/john
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PATH="/usr/local/lib/ruby/gems/3.3.0/bin:$PATH"
 
+# Keys
+bindkey -v
+
 # Completion
 setopt HIST_IGNORE_ALL_DUPS
 autoload -Uz compinit && compinit
@@ -45,10 +48,12 @@ autoload -Uz compinit && compinit
 prefix="/usr/local/"
 source ${prefix}/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${prefix}/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source ${prefix}/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 source ${prefix}/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
-zvm_after_init_commands+=("bindkey '^[[A' history-substring-search-up; bindkey '^[[B' history-substring-search-down")
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
 
 # Ohmyposh
 ohmyposh_config="$HOME/.config/ohmyposh/config.toml"
@@ -60,10 +65,8 @@ export EDITOR='nvim'
 # Aliases
 alias lg='lazygit'
 alias n='nvim'
-alias s='spf'
-alias mingw-gcc-x86='x86_64-w64-mingw32-gcc'
-alias mingw-gcc-i686='i686-w64-mingw32-gcc'
-alias wine='/Applications/WineCrossover.app/Contents/Resources/wine/bin/wine'
+alias py3='python3'
+alias mk='make'
 # File operation aliases
 # ls
 alias ls='lsd'
@@ -87,4 +90,9 @@ alias gm='git merge'
 alias gi='git init'
 alias gr='git reset'
 alias grm='git remote'
-
+alias gcf='git config'
+# Tmux aliases
+alias t='tmux'
+alias tn='tmux new'
+alias ta='tmux attach'
+alias tl='tmux ls'
