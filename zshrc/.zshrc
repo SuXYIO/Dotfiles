@@ -67,6 +67,7 @@ alias lg='lazygit'
 alias n='nvim'
 alias py3='python3'
 alias mk='make'
+alias activate='source venv/bin/activate'
 # File operation aliases
 # ls
 alias ls='lsd'
