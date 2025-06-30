@@ -91,39 +91,14 @@ console_title_template = '{{ .Shell }} in {{ .Folder }}'
 			style = 'roundrock'
 			threshold = 0.0
 
-
-	[[blocks.segments]]
-		type = 'battery'
-		style = 'diamond'
-		foreground = 'p:white'
-		background = 'p:deepgreen'
-		leading_diamond = ''
-		trailing_diamond = ''
-		template = ' {{ if not .Error }}{{ .Icon }}{{ .Percentage }}{{ end }}% '
-
-		[blocks.segments.properties]
-			discharging_icon = '󰁿 '
-			charging_icon = '󰂉 '
-			charged_icon = '󰂅 '
-
-
 	[[blocks.segments]]
 		type = 'sysinfo'
 		style = 'diamond'
 		foreground = 'p:white'
 		background = 'p:darkpink'
 		leading_diamond = ''
-		trailing_diamond = ''
-		template = '  {{ round .PhysicalPercentUsed .Precision }} '
-
-	[[blocks.segments]]
-		type = 'time'
-		style = 'diamond'
-		foreground = 'p:black'
-		background = 'p:white'
-		leading_diamond = ''
 		trailing_diamond = ''
-		template = ' 󰥔 {{ .CurrentDate | date .Format }} '
+		template = '  {{ round .PhysicalPercentUsed .Precision }} '
 
 [transient_prompt]
 	foreground = 'p:grey'

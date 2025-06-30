@@ -2,14 +2,15 @@
 
 ## Intro :information_source:
 
-A place to put some of my __dotfiles__.  
-More complex config (such as `NeoVim`) are in my other repos.  
+A place to put some of my **dotfiles**.  
+More complex config (such as `NeoVim`) are in my other repos.
 
-Including:  
+Including:
+
 - Zshrc
 - Ohmyposh
-- LazyGit
 - Kitty
+- Tmux
 - Bashrc
 - Git
 
@@ -17,27 +18,29 @@ Including:
 
 ### Setup.sh
 
-Install __[GNU Stow](https://www.gnu.org/software/stow)__.  
-Run the `setup.sh` install script.  
+Install **[GNU Stow](https://www.gnu.org/software/stow)**.  
+Run the `setup.sh` install script.
+
 ```bash
 ./setup.sh
 ```
 
-This script also automates __Github Codespaces__, and automatically excludes packages for codespaces.  
+This script also automates **Github Codespaces**, and automatically excludes packages for codespaces.
 
 ### Manually
 
-__[GNU Stow](https://www.gnu.org/software/stow)__ is recommended.  
+**[GNU Stow](https://www.gnu.org/software/stow)** is recommended.  
 Run
+
 ```bash
 stow foo
 ```
+
 in this directory
 
 Where `foo` is the package you want to link.  
-For example: `stow zshrc` links the `zshrc` package.  
+For example: `stow zshrc` links the `zshrc` package.
 
 ## Note :memo:
 
-The `kitty/.config/kitty/theme_ayu.conf` is generated from `kitten themes`.  
-
+The `kitty/.config/kitty/theme_ayu.conf` is generated from `kitten themes`.

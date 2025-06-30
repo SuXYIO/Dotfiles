@@ -68,6 +68,15 @@ alias n='nvim'
 alias py3='python3'
 alias mk='make'
 alias activate='source venv/bin/activate'
+function notice() {
+	if [ $# -gt 0 ]; then
+		osascript -e "display notification \"$2\" with title \"$1\""
+	else
+		echo 'notice needs at least one argument: title(string), description(optional string)'
+	fi
+}
+alias gcc='/usr/local/bin/gcc-14'
+alias g++='/usr/local/bin/g++-14'
 # File operation aliases
 # ls
 alias ls='lsd'
