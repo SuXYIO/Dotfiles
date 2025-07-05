@@ -29,5 +29,5 @@
 [color]
 	ui = true
 [http]
-	sslbackend = openssl
+	#sslbackend = openssl
 	sslVerify = true

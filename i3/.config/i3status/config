@@ -1,0 +1,47 @@
+general {
+	colors = true
+	color_good = "#a3be8c"
+	color_degraded = "#ebcb8b"
+	color_bad = "#bf616a"
+	interval = 1
+	separator = "|"
+}
+
+order += "memory"
+order += "cpu_usage"
+order += "battery all"
+order += "wireless _first_"
+order += "tztime local"
+
+cpu_usage {
+	format = " %usage"
+	degraded_threshold = 90
+	max_threshold = 95
+}
+
+wireless _first_ {
+	format_up = "󰤨%quality"
+	format_down = "󰤭 down"
+}
+
+battery all {
+	format = "%status %percentage"
+	format_down = "󱉝 "
+	status_chr = "󰂅"
+	status_bat = "󰁹"
+	status_unk = "󰂑"
+	status_full = "󰁹"
+	last_full_capacity = true
+	integer_battery_capacity = true
+	threshold_type = percentage
+	low_threshold = 20
+}
+
+memory {
+	format = " %used/%total"
+	memory_used_method = classical
+}
+
+tztime local {
+	format = "%y/%m/%d %H:%M:%S"
+}

@@ -3,31 +3,9 @@
 ## Intro :information_source:
 
 A place to put some of my **dotfiles**.  
-More complex config (such as `NeoVim`) are in my other repos.
-
-Including:
-
-- Zshrc
-- Ohmyposh
-- Kitty
-- Tmux
-- Bashrc
-- Git
+More complex config (such as [NeoVim](https://github.com/suxyio/Nvim_Conf)) are in my other repos.
 
 ## Usage :calling:
-
-### Setup.sh
-
-Install **[GNU Stow](https://www.gnu.org/software/stow)**.  
-Run the `setup.sh` install script.
-
-```bash
-./setup.sh
-```
-
-This script also automates **Github Codespaces**, and automatically excludes packages for codespaces.
-
-### Manually
 
 **[GNU Stow](https://www.gnu.org/software/stow)** is recommended.  
 Run
@@ -36,9 +14,8 @@ Run
 stow foo
 ```
 
-in this directory
-
-Where `foo` is the package you want to link.  
+in this directory  
+Where `foo` is the package you wanna link.  
 For example: `stow zshrc` links the `zshrc` package.
 
 ## Note :memo:
