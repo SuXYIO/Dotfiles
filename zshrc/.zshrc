@@ -6,6 +6,7 @@ fi
 
 # env
 # zsh
+export HISTFILE=~/.zsh_history
 export HISTSIZE=512
 export SAVEHIST=512
 # pager
