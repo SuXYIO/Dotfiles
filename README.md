@@ -17,7 +17,3 @@ stow foo
 in this directory  
 Where `foo` is the package you wanna link.  
 For example: `stow zshrc` links the `zshrc` package.
-
-## Note :memo:
-
-The `kitty/.config/kitty/theme_ayu.conf` is generated from `kitten themes`.

@@ -11,6 +11,7 @@ order += "memory"
 order += "cpu_usage"
 order += "battery all"
 order += "wireless _first_"
+order += "volume master"
 order += "tztime local"
 
 cpu_usage {
@@ -40,6 +41,11 @@ battery all {
 memory {
 	format = " %used/%total"
 	memory_used_method = classical
+}
+
+volume master {
+	format = " %volume"
+	format_muted = " %volume"
 }
 
 tztime local {
