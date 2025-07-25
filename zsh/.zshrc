@@ -5,16 +5,17 @@ if [ -n $SSH_CONNECTION ] || [ -n $SSH_CLIENT ] || [ -n $SSH_TTY]; then
 fi
 
 # env
-# zsh
 export HISTFILE=~/.zsh_history
 export HISTSIZE=512
 export SAVEHIST=512
+
 # pager
 export MANPAGER='nvim +Man!'
 # lang
 export LANG=en_US.UTF-8
 # zoxide
 eval "$(zoxide init zsh)"
+
 # Keys
 bindkey -v
 
@@ -46,7 +47,8 @@ export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottl
 # Path
 # Ohmyposh
 export PATH="$PATH:~/.local/bin"
-# Rustup
+# Rust
+export PATH="$PATH:~/.cargo/bin"
 export PATH="$PATH:/home/linuxbrew/.linuxbrew/opt/rustup/bin"
 
 # Custom
@@ -56,8 +58,8 @@ export EDITOR='nvim'
 alias lg='lazygit'
 alias n='nvim'
 alias py3='python3'
+alias venv='python3 -m venv'
 alias mk='make'
-alias activate='source venv/bin/activate'
 # File operation aliases
 # ls
 alias ls='lsd'
