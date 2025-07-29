@@ -24,15 +24,15 @@ setopt HIST_IGNORE_ALL_DUPS
 autoload -Uz compinit && compinit
 
 # Plugins
-prefix="/usr/local/share"
+prefix="/usr/share"
 # clone the repos manually when installing
 source ${prefix}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${prefix}/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${prefix}/zsh-history-substring-search/zsh-history-substring-search.zsh
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 # use '^[[A' or anything that fits your emulator
-bindkey '^[OA' history-substring-search-up
-bindkey '^[OB' history-substring-search-down
+bindkey "$terminfo[kcuu1]" history-substring-search-up
+bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
@@ -40,16 +40,10 @@ bindkey -M vicmd 'j' history-substring-search-down
 ohmyposh_config="$HOME/.config/ohmyposh/config.toml"
 eval "$(oh-my-posh init zsh --config ${ohmyposh_config})"
 
-# Brew
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.aliyun.com/homebrew/homebrew-bottles
-
 # Path
-# Ohmyposh
-export PATH="$PATH:~/.local/bin"
+export PATH="$PATH:/home/$USER/.local/bin"
 # Rust
-export PATH="$PATH:~/.cargo/bin"
-export PATH="$PATH:/home/linuxbrew/.linuxbrew/opt/rustup/bin"
+export PATH="$PATH:/home/$USER/.cargo/bin"
 
 # Custom
 export EDITOR='nvim'

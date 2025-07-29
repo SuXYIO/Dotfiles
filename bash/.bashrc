@@ -2,6 +2,7 @@
 export MANPAGER='nvim +Man!'
 export LANG=en_US.UTF-8
 export EDITOR='nvim'
+eval "$(zoxide init bash)"
 
 # Aliases
 alias lg='lazygit'
