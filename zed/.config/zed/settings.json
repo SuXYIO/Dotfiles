@@ -1,0 +1,36 @@
+{
+	"bottom_dock_layout": "right_aligned",
+	"auto_install_extensions": {},
+	"restore_on_startup": "none",
+
+	"buffer_font_family": "JetBrains Mono",
+	"buffer_font_fallbacks": ["JetBrainsMono Nerd Font"],
+	"buffer_font_size": 16,
+	"ui_font_size": 16,
+	"terminal": {
+		"font_family": "JetBrainsMono Nerd Font",
+		"font_size": 15
+	},
+
+	"cursor_blink": false,
+	"cursor_shape": "block",
+	"minimap": {
+		"show": "auto"
+	},
+	"tabs": {
+		"file_icons": true,
+		"show_diagnostics": "all"
+	},
+
+	"ensure_final_newline_on_save": false,
+	"lsp": {},
+	"hard_tabs": true,
+	"tab_size": 4,
+
+	"vim_mode": true,
+
+	"telemetry": {
+		"diagnostics": false,
+		"metrics": false
+	}
+}

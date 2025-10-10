@@ -5,11 +5,16 @@ export EDITOR='nvim'
 eval "$(zoxide init bash)"
 
 # Aliases
+# Tools
 alias lg='lazygit'
 alias n='nvim'
+# Development
 alias py3='python3'
+alias venv='python3 -m venv'
+function activ {
+	source "$1/bin/activate"
+}
 alias mk='make'
-alias activate='source venv/bin/activate'
 # File operation aliases
 # ls
 alias ls='lsd'

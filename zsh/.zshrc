@@ -49,10 +49,15 @@ export PATH="$PATH:/home/$USER/.cargo/bin"
 export EDITOR='nvim'
 
 # Aliases
+# Tools
 alias lg='lazygit'
 alias n='nvim'
+# Development
 alias py3='python3'
 alias venv='python3 -m venv'
+function activ {
+	source "$1/bin/activate"
+}
 alias mk='make'
 # File operation aliases
 # ls
@@ -83,3 +88,4 @@ alias t='tmux'
 alias tn='tmux new'
 alias ta='tmux attach'
 alias tl='tmux ls'
+
