@@ -1,142 +1,143 @@
-console_title_template = '{{ .Shell }} in {{ .Folder }}'
+console_title_template = "{{ .Shell }} in {{ .Folder }}"
 version = 3
 final_space = true
 
 [palette]
-  black = '#010101'
-  blue = '#0000ff'
-  cyan = '#00ffff'
-  darkcyan = '#008888'
-  darkpink = '#880088'
-  darkyellow = '#888800'
-  deepblue = '#000088'
-  deepgreen = '#008800'
-  deepred = '#880000'
-  green = '#00ff00'
-  grey = '#888888'
-  pink = '#ff00ff'
-  red = '#ff0000'
-  white = '#ffffff'
-  yellow = '#ffff00'
+  black = "#010101"
+  blue = "#0000ff"
+  cyan = "#00ffff"
+  darkcyan = "#008888"
+  darkpink = "#880088"
+  darkyellow = "#888800"
+  deepblue = "#000088"
+  deepgreen = "#008800"
+  deepred = "#880000"
+  green = "#00ff00"
+  grey = "#888888"
+  pink = "#ff00ff"
+  red = "#ff0000"
+  white = "#ffffff"
+  yellow = "#ffff00"
 
 [secondary_prompt]
-  template = ' '
-  foreground = 'p:grey'
-  background = 'transparent'
+  template = " "
+  foreground = "p:grey"
+  background = "transparent"
 
 [transient_prompt]
-  template = ' '
-  foreground = 'p:grey'
-  background = 'transparent'
+  template = " "
+  foreground = "p:grey"
+  background = "transparent"
 
 [[blocks]]
-  type = 'prompt'
-  alignment = 'left'
+  type = "prompt"
+  alignment = "left"
 
   [[blocks.segments]]
-    leading_diamond = ''
-    trailing_diamond = ''
-    template = ' {{ if .WSL }}WSL at {{ end }}{{.Icon}} '
-    foreground = 'p:black'
-    background = 'p:white'
-    type = 'os'
-    style = 'diamond'
+    leading_diamond = ""
+    trailing_diamond = ""
+    template = " {{ if .WSL }}WSL at {{ end }}{{.Icon}} "
+    foreground = "p:black"
+    background = "p:white"
+    type = "os"
+    style = "diamond"
 
     [blocks.segments.properties]
-      cache_duration = 'none'
+      cache_duration = "none"
 
   [[blocks.segments]]
-    leading_diamond = ''
-    template = '  {{ .Path }} '
-    foreground = 'p:white'
-    background = 'p:black'
-    type = 'path'
-    style = 'diamond'
+    leading_diamond = ""
+    template = "  {{ .Path }} "
+    foreground = "p:white"
+    background = "p:black"
+    type = "path"
+    style = "diamond"
 
     [blocks.segments.properties]
-      cache_duration = 'none'
-      style = 'folder'
+      cache_duration = "none"
+      style = "folder"
 
   [[blocks.segments]]
-    template = ' {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} '
-    foreground = 'p:black'
-    powerline_symbol = ''
-    background = 'p:deepgreen'
-    type = 'git'
-    style = 'powerline'
-    background_templates = ['{{ if or (.Working.Changed) (.Staging.Changed) }}p:deepgreen{{ end }}', '{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:deepred{{ end }}', '{{ if gt .Ahead 0 }}p:deepgreen{{ end }}', '{{ if gt .Behind 0 }}p:deepred{{ end }}']
+    template = " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} "
+    foreground = "p:black"
+    powerline_symbol = ""
+    background = "p:deepgreen"
+    type = "git"
+    style = "powerline"
+    background_templates = ["{{ if or (.Working.Changed) (.Staging.Changed) }}p:deepgreen{{ end }}", "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:deepred{{ end }}", "{{ if gt .Ahead 0 }}p:deepgreen{{ end }}", "{{ if gt .Behind 0 }}p:deepred{{ end }}"]
 
     [blocks.segments.properties]
-      branch_icon = ' '
-      cache_duration = 'none'
+      branch_icon = " "
+      cache_duration = "none"
       fetch_stash_count = true
       fetch_status = true
       fetch_upstream_icon = true
       fetch_worktree_count = true
 
   [[blocks.segments]]
-    template = '  '
-    foreground = 'p:white'
-    powerline_symbol = ''
-    background = 'p:yellow'
-    type = 'root'
-    style = 'powerline'
+    template = "  "
+    foreground = "p:white"
+    powerline_symbol = ""
+    background = "p:yellow"
+    type = "root"
+    style = "powerline"
 
     [blocks.segments.properties]
-      cache_duration = 'none'
+      cache_duration = "none"
 
   [[blocks.segments]]
-    leading_diamond = ''
-    trailing_diamond = ''
-    template = ' {{ .String }} '
-    foreground = 'p:white'
-    background = 'p:deepblue'
-    type = 'status'
-    style = 'diamond'
-    background_templates = ['{{ if gt .Code 0 }}p:deepred{{ end }}']
+    leading_diamond = ""
+    trailing_diamond = ""
+    template = " {{ .String }} "
+    foreground = "p:white"
+    background = "p:deepblue"
+    type = "status"
+    style = "diamond"
+    background_templates = ["{{ if gt .Code 0 }}p:deepred{{ end }}"]
 
     [blocks.segments.properties]
       always_enabled = true
-      cache_duration = 'none'
+      cache_duration = "none"
 
 [[blocks]]
-  type = 'rprompt'
-  alignment = 'right'
+  type = "rprompt"
+  alignment = "right"
 
   [[blocks.segments]]
-    leading_diamond = ''
-    trailing_diamond = ''
-    template = ' 󰞷 {{ .Name }} '
-    foreground = 'p:black'
-    background = 'p:grey'
-    type = 'shell'
-    style = 'diamond'
+    leading_diamond = ""
+    trailing_diamond = ""
+    template = " 󱎫 {{ .FormattedMs }} "
+    foreground = "p:white"
+    background = "p:black"
+    type = "executiontime"
+    style = "diamond"
 
     [blocks.segments.properties]
-      cache_duration = 'none'
-
-  [[blocks.segments]]
-    leading_diamond = ''
-    trailing_diamond = ''
-    template = ' 󱎫 {{ .FormattedMs }} '
-    foreground = 'p:white'
-    background = 'p:black'
-    type = 'executiontime'
-    style = 'diamond'
-
-    [blocks.segments.properties]
-      cache_duration = 'none'
-      style = 'roundrock'
+      cache_duration = "none"
+      style = "roundrock"
       threshold = 0.0
 
   [[blocks.segments]]
-    leading_diamond = ''
-    trailing_diamond = ''
-    template = '  {{ round .PhysicalPercentUsed .Precision }} '
-    foreground = 'p:white'
-    background = 'p:darkpink'
-    type = 'sysinfo'
-    style = 'diamond'
+    leading_diamond = ""
+    trailing_diamond = ""
+    template = "  {{ .Venv }} "
+    foreground = "p:white"
+    background = "p:deepblue"
+    type = "python"
+    style = "diamond"
+
+  [[blocks.segments]]
+    leading_diamond = ""
+    trailing_diamond = ""
+    #background_templates = [ "{{if eq \"Charging\" .State.String}}p:deepgreen{{end}}", "{{if eq \"Discharging\" .State.String}}#deepred{{end}}", "{{if eq \"Full\" .State.String}}#deepblue{{end}}" ]
+    background_templates = [ "{{if eq \"Charging\" .State.String}}p:deepgreen{{end}}", "{{if eq \"Discharging\" .State.String}}p:deepgreen{{end}}", "{{if eq \"Full\" .State.String}}p:deepblue{{end}}" ]
+    template = "{{ .Icon }}{{ .Percentage }}%"
+    foreground = "p:black"
+    background = "p:deepgreen"
+    type = "battery"
+    style = "diamond"
 
     [blocks.segments.properties]
-      cache_duration = 'none'
+        discharging_icon = "󰁹 "
+        charging_icon = "󰂄 "
+        charged_icon = "󱟢 "

@@ -52,12 +52,6 @@ export EDITOR='nvim'
 # Tools
 alias lg='lazygit'
 alias n='nvim'
-# Development
-alias py3='python3'
-alias venv='python3 -m venv'
-function activ {
-	source "$1/bin/activate"
-}
 alias mk='make'
 # File operation aliases
 # ls
@@ -89,3 +83,17 @@ alias tn='tmux new'
 alias ta='tmux attach'
 alias tl='tmux ls'
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/suxy/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/suxy/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/suxy/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/suxy/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
