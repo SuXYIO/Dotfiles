@@ -9,8 +9,6 @@ export HISTFILE=~/.zsh_history
 export HISTSIZE=512
 export SAVEHIST=512
 
-# pager
-export MANPAGER='nvim +Man!'
 # lang
 export LANG=en_US.UTF-8
 # zoxide
@@ -21,7 +19,7 @@ bindkey -v
 
 # Completion
 setopt HIST_IGNORE_ALL_DUPS
-autoload -Uz compinit && compinit
+autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
 
 # Plugins
 prefix="/usr/share"
@@ -35,6 +33,12 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
+
+# fuckit.sh
+source /home/suxy/.fuck/main.sh
+
+# fzf
+source <(fzf --zsh)
 
 # Ohmyposh
 ohmyposh_config="$HOME/.config/ohmyposh/config.toml"
@@ -52,7 +56,8 @@ export EDITOR='nvim'
 # Tools
 alias lg='lazygit'
 alias n='nvim'
-alias mk='make'
+alias dush='du -sh'
+alias dfh='df -h'
 # File operation aliases
 # ls
 alias ls='lsd'
@@ -77,6 +82,9 @@ alias gi='git init'
 alias gr='git reset'
 alias grm='git remote'
 alias gcf='git config'
+alias gst='git status'
+alias grs='git restore'
+alias gf='git fetch'
 # Tmux aliases
 alias t='tmux'
 alias tn='tmux new'

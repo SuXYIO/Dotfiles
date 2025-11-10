@@ -3,21 +3,12 @@ version = 3
 final_space = true
 
 [palette]
-  black = "#010101"
-  blue = "#0000ff"
-  cyan = "#00ffff"
-  darkcyan = "#008888"
-  darkpink = "#880088"
-  darkyellow = "#888800"
-  deepblue = "#000088"
-  deepgreen = "#008800"
-  deepred = "#880000"
-  green = "#00ff00"
+  black = "#000000"
+  deepblue = "#001166"
+  deepgreen = "#006611"
+  deepred = "#660000"
   grey = "#888888"
-  pink = "#ff00ff"
-  red = "#ff0000"
   white = "#ffffff"
-  yellow = "#ffff00"
 
 [secondary_prompt]
   template = " "
@@ -75,10 +66,10 @@ final_space = true
       fetch_worktree_count = true
 
   [[blocks.segments]]
-    template = "  "
+    template = " "
     foreground = "p:white"
     powerline_symbol = ""
-    background = "p:yellow"
+    background = "p:deepred"
     type = "root"
     style = "powerline"
 
