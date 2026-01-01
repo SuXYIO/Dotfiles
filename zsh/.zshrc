@@ -17,13 +17,20 @@ eval "$(zoxide init zsh)"
 # Keys
 bindkey -v
 
-# Completion
+# Autoloads
+# completion
 setopt HIST_IGNORE_ALL_DUPS
-autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+#autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+# edit cmdline
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey '^X' edit-command-line
+# zmv
+autoload -Uz zmv
 
 # Plugins
 prefix="/usr/share"
-# clone the repos manually when installing
+# pls clone the repos manually when installing
 source ${prefix}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${prefix}/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${prefix}/zsh-history-substring-search/zsh-history-substring-search.zsh
@@ -33,16 +40,15 @@ bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
-
-# fuckit.sh
-source /home/suxy/.fuck/main.sh
+unset prefix
 
 # fzf
-source <(fzf --zsh)
+#source <(fzf --zsh)
 
 # Ohmyposh
 ohmyposh_config="$HOME/.config/ohmyposh/config.toml"
 eval "$(oh-my-posh init zsh --config ${ohmyposh_config})"
+unset ohmyposh_config
 
 # Path
 export PATH="$PATH:/home/$USER/.local/bin"
@@ -56,8 +62,6 @@ export EDITOR='nvim'
 # Tools
 alias lg='lazygit'
 alias n='nvim'
-alias dush='du -sh'
-alias dfh='df -h'
 # File operation aliases
 # ls
 alias ls='lsd'
@@ -91,17 +95,25 @@ alias tn='tmux new'
 alias ta='tmux attach'
 alias tl='tmux ls'
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/suxy/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/suxy/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/suxy/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/suxy/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+# conda lazyload
+conda() {
+	if [ -z "${CONDA_INITIALIZED}" ]; then
+		# >>> conda initialize >>>
+		# !! Contents within this block are managed by 'conda init' !!
+		__conda_setup="$('/home/suxy/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+		if [ $? -eq 0 ]; then
+			eval "$__conda_setup"
+		else
+			if [ -f "/home/suxy/miniconda3/etc/profile.d/conda.sh" ]; then
+				. "/home/suxy/miniconda3/etc/profile.d/conda.sh"
+			else
+				export PATH="/home/suxy/miniconda3/bin:$PATH"
+			fi
+		fi
+		unset __conda_setup
+		# <<< conda initialize <<<
+		export CONDA_INITIALIZED=1
+	fi
+	command conda "$@"
+	unfunction conda
+}

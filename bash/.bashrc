@@ -8,13 +8,6 @@ eval "$(zoxide init bash)"
 # Tools
 alias lg='lazygit'
 alias n='nvim'
-# Development
-alias py3='python3'
-alias venv='python3 -m venv'
-function activ {
-	source "$1/bin/activate"
-}
-alias mk='make'
 # File operation aliases
 # ls
 alias ls='lsd'
@@ -39,6 +32,9 @@ alias gi='git init'
 alias gr='git reset'
 alias grm='git remote'
 alias gcf='git config'
+alias gst='git status'
+alias grs='git restore'
+alias gf='git fetch'
 # Tmux aliases
 alias t='tmux'
 alias tn='tmux new'
