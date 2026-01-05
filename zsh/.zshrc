@@ -1,5 +1,5 @@
 # SSH Config
-if [ -n $SSH_CONNECTION ] || [ -n $SSH_CLIENT ] || [ -n $SSH_TTY]; then
+if [ -n "$SSH_CONNECTION" ] || [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 	# local
 	setopt HIST_IGNORE_SPACE
 fi
@@ -14,13 +14,27 @@ export LANG=en_US.UTF-8
 # zoxide
 eval "$(zoxide init zsh)"
 
-# Keys
+# Options
 bindkey -v
+setopt NO_CLOBBER
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_SAVE_NO_DUPS
+setopt SHARE_HISTORY
 
 # Autoloads
 # completion
-setopt HIST_IGNORE_ALL_DUPS
-#autoload -Uz compinit && compinit -d ~/.cache/zsh/zcompdump-$ZSH_VERSION
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' menu select
+# lazyload compinit
+compinit_lazy_func() {
+	# run on first tab press
+	autoload -Uz compinit && compinit
+	unfunction compinit_lazy_func
+	zle -D compinit_lazy
+	bindkey "^I" complete-word
+}
+zle -N compinit_lazy compinit_lazy_func
+bindkey "^I" compinit_lazy
 # edit cmdline
 autoload -Uz edit-command-line
 zle -N edit-command-line
@@ -32,18 +46,16 @@ autoload -Uz zmv
 prefix="/usr/share"
 # pls clone the repos manually when installing
 source ${prefix}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source ${prefix}/zsh-autosuggestions/zsh-autosuggestions.zsh
+#source ${prefix}/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${prefix}/zsh-history-substring-search/zsh-history-substring-search.zsh
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 # use '^[[A' or anything that fits your emulator
 bindkey "$terminfo[kcuu1]" history-substring-search-up
 bindkey "$terminfo[kcud1]" history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
 unset prefix
 
 # fzf
-#source <(fzf --zsh)
+source <(fzf --zsh)
 
 # Ohmyposh
 ohmyposh_config="$HOME/.config/ohmyposh/config.toml"
@@ -62,6 +74,7 @@ export EDITOR='nvim'
 # Tools
 alias lg='lazygit'
 alias n='nvim'
+alias grep='grep --color=auto'
 # File operation aliases
 # ls
 alias ls='lsd'
@@ -95,25 +108,22 @@ alias tn='tmux new'
 alias ta='tmux attach'
 alias tl='tmux ls'
 
-# conda lazyload
+# lazyload conda
 conda() {
-	if [ -z "${CONDA_INITIALIZED}" ]; then
-		# >>> conda initialize >>>
-		# !! Contents within this block are managed by 'conda init' !!
-		__conda_setup="$('/home/suxy/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-		if [ $? -eq 0 ]; then
-			eval "$__conda_setup"
-		else
-			if [ -f "/home/suxy/miniconda3/etc/profile.d/conda.sh" ]; then
-				. "/home/suxy/miniconda3/etc/profile.d/conda.sh"
-			else
-				export PATH="/home/suxy/miniconda3/bin:$PATH"
-			fi
-		fi
-		unset __conda_setup
-		# <<< conda initialize <<<
-		export CONDA_INITIALIZED=1
-	fi
-	command conda "$@"
 	unfunction conda
+	# >>> conda initialize >>>
+	# !! Contents within this block are managed by 'conda init' !!
+	__conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
+	if [ $? -eq 0 ]; then
+		eval "$__conda_setup"
+	else
+		if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
+			. "$HOME/miniconda3/etc/profile.d/conda.sh"
+		else
+			export PATH="$HOME/miniconda3/bin:$PATH"
+		fi
+	fi
+	unset __conda_setup
+	# <<< conda initialize <<<
+	conda "$@"
 }
