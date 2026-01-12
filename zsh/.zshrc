@@ -19,7 +19,7 @@ bindkey -v
 setopt NO_CLOBBER
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
-setopt SHARE_HISTORY
+#setopt SHARE_HISTORY
 
 # Autoloads
 # completion
@@ -104,7 +104,6 @@ alias grs='git restore'
 alias gf='git fetch'
 # Tmux aliases
 alias t='tmux'
-alias tn='tmux new'
 alias ta='tmux attach'
 alias tl='tmux ls'
 

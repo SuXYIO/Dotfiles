@@ -6,6 +6,8 @@ patch:
     bindings:
       - { when: has_menu, accept: bracketleft, send: Page_Up }
       - { when: has_menu, accept: bracketright, send: Page_Down }
+      - { when: has_menu, accept: comma, send: Page_Up }
+      - { when: has_menu, accept: period, send: Page_Down }
   style:
     horizontal: true
     inline_preedit: true
