@@ -1,7 +1,18 @@
 # Env
-export MANPAGER='nvim +Man!'
-export LANG=en_US.UTF-8
+# path
+export PATH="$PATH:/home/$USER/.local/bin"
+# options
 export EDITOR='nvim'
+export HISTFILE=~/.zsh_history
+export HISTSIZE=512
+export SAVEHIST=512
+# develop
+export GOPROXY=https://goproxy.io,direct
+export PATH="$PATH:/home/$USER/.cargo/bin"
+# lang
+export LANG=en_US.UTF-8
+
+# Tools
 eval "$(zoxide init bash)"
 
 # Aliases

@@ -4,15 +4,20 @@ if [ -n "$SSH_CONNECTION" ] || [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
 	setopt HIST_IGNORE_SPACE
 fi
 
-# env
-export HISTFILE=~/.zsh_history
-export HISTSIZE=512
-export SAVEHIST=512
-
+# Env
+# path
+export PATH="$PATH:/home/$USER/.local/bin"
+# options
+export EDITOR='nvim'
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=2048
+export SAVEHIST=2048
+# develop
+export GOPROXY='https://goproxy.io,direct'
+export PATH="$PATH:$HOME/.cargo/bin"
 # lang
 export LANG=en_US.UTF-8
-# zoxide
-eval "$(zoxide init zsh)"
+
 
 # Options
 bindkey -v
@@ -25,16 +30,7 @@ setopt HIST_SAVE_NO_DUPS
 # completion
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 zstyle ':completion:*' menu select
-# lazyload compinit
-compinit_lazy_func() {
-	# run on first tab press
-	autoload -Uz compinit && compinit
-	unfunction compinit_lazy_func
-	zle -D compinit_lazy
-	bindkey "^I" complete-word
-}
-zle -N compinit_lazy compinit_lazy_func
-bindkey "^I" compinit_lazy
+autoload -Uz compinit && compinit
 # edit cmdline
 autoload -Uz edit-command-line
 zle -N edit-command-line
@@ -43,32 +39,27 @@ bindkey '^X' edit-command-line
 autoload -Uz zmv
 
 # Plugins
-prefix="/usr/share"
+prefix='/usr/share'
 # pls clone the repos manually when installing
 source ${prefix}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-#source ${prefix}/zsh-autosuggestions/zsh-autosuggestions.zsh
+source ${prefix}/zsh-autosuggestions/zsh-autosuggestions.zsh
 source ${prefix}/zsh-history-substring-search/zsh-history-substring-search.zsh
 export HISTORY_SUBSTRING_SEARCH_FUZZY=true
 # use '^[[A' or anything that fits your emulator
-bindkey "$terminfo[kcuu1]" history-substring-search-up
-bindkey "$terminfo[kcud1]" history-substring-search-down
+bindkey "${terminfo[kcuu1]}" history-substring-search-up
+bindkey "${terminfo[kcud1]}" history-substring-search-down
 unset prefix
 
+# Tools
 # fzf
 source <(fzf --zsh)
+# zoxide
+eval "$(zoxide init zsh)"
 
 # Ohmyposh
 ohmyposh_config="$HOME/.config/ohmyposh/config.toml"
 eval "$(oh-my-posh init zsh --config ${ohmyposh_config})"
 unset ohmyposh_config
-
-# Path
-export PATH="$PATH:/home/$USER/.local/bin"
-# Rust
-export PATH="$PATH:/home/$USER/.cargo/bin"
-
-# Custom
-export EDITOR='nvim'
 
 # Aliases
 # Tools
