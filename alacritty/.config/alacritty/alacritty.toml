@@ -1,22 +1,22 @@
 [window]
-	dynamic_padding = true
-	opacity = 0.8
+dynamic_padding = true
+opacity = 0.8
 
 [scrolling]
-	history = 4096
+history = 4096
 
 [font]
-	normal = { family = "JetBrainsMono Nerd Font" }
-	size = 12
+normal = { family = "JetBrainsMono Nerd Font" }
+size = 13
 
 [cursor]
-	style = { blinking = "Always" }
+style = { blinking = "Always" }
 
 [mouse]
-	hide_when_typing = true
+hide_when_typing = true
 
 [keyboard]
-	bindings = [
-		{ key = "C", mods = "Super", action = "Copy" },
-		{ key = "V", mods = "Super", action = "Paste" }
-	]
+bindings = [
+  { key = "C", mods = "Super", action = "Copy" },
+  { key = "V", mods = "Super", action = "Paste" },
+]

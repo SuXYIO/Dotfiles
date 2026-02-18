@@ -93,6 +93,7 @@ alias gcf='git config'
 alias gst='git status'
 alias grs='git restore'
 alias gf='git fetch'
+alias gt='git tag'
 # Tmux aliases
 alias t='tmux'
 alias ta='tmux attach'
