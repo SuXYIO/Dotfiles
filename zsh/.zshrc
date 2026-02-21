@@ -18,7 +18,6 @@ export PATH="$PATH:$HOME/.cargo/bin"
 # lang
 export LANG=en_US.UTF-8
 
-
 # Options
 bindkey -v
 setopt NO_CLOBBER
@@ -61,12 +60,12 @@ ohmyposh_config="$HOME/.config/ohmyposh/config.toml"
 eval "$(oh-my-posh init zsh --config ${ohmyposh_config})"
 unset ohmyposh_config
 
-# Aliases
+# Aliases & Functions
 # Tools
 alias lg='lazygit'
 alias n='nvim'
 alias grep='grep --color=auto'
-# File operation aliases
+# File operations
 # ls
 alias ls='lsd'
 alias la='ls -A'
@@ -74,7 +73,7 @@ alias ll='ls -l'
 alias lla='ls -lA'
 # mkdir
 alias md='mkdir'
-# Git aliases
+# Git
 alias g='git'
 alias ga='git add'
 alias gc='git commit'
@@ -84,6 +83,7 @@ alias glo='git log --pretty=oneline --graph --decorate'
 alias gd='git diff'
 alias gb='git branch'
 alias gco='git checkout'
+alias gsw='git switch'
 alias gcl='git clone'
 alias gm='git merge'
 alias gi='git init'
@@ -94,7 +94,18 @@ alias gst='git status'
 alias grs='git restore'
 alias gf='git fetch'
 alias gt='git tag'
-# Tmux aliases
+# cd to a git repository top
+cd_project_top() {
+	toplevel="$(git rev-parse --show-toplevel)" || {
+		# failed
+		return 1
+	}
+
+	cd -- "${toplevel}" || return
+	echo "$toplevel"
+}
+alias zt='cd_project_top'
+# Tmux
 alias t='tmux'
 alias ta='tmux attach'
 alias tl='tmux ls'
