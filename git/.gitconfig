@@ -10,7 +10,8 @@
 	defaultbranch = main
 [core]
 	ignorecase = false
-	excludesfile = /home/suxy/.gitignore_global
+	excludesfile = ~/.gitignore_global
+	autocrlf = input
 	editor = nvim
 	pager = less
 [push]
