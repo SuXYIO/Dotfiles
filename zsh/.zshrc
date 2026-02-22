@@ -1,9 +1,3 @@
-# SSH Config
-if [ -n "$SSH_CONNECTION" ] || [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-	# local
-	setopt HIST_IGNORE_SPACE
-fi
-
 # Env
 # path
 export PATH="$PATH:/home/$USER/.local/bin"
@@ -20,6 +14,7 @@ export LANG=en_US.UTF-8
 
 # Options
 bindkey -v
+setopt HIST_IGNORE_SPACE
 setopt NO_CLOBBER
 setopt HIST_IGNORE_ALL_DUPS
 setopt HIST_SAVE_NO_DUPS
@@ -79,19 +74,21 @@ alias ga='git add'
 alias gc='git commit'
 alias gp='git push'
 alias gl='git pull'
-alias glo='git log --pretty=oneline --graph --decorate'
+alias glg='git log --pretty=oneline --graph --decorate'
 alias gd='git diff'
 alias gb='git branch'
 alias gco='git checkout'
 alias gsw='git switch'
 alias gcl='git clone'
 alias gm='git merge'
+alias gcp='git cherry-pick'
 alias gi='git init'
 alias gr='git reset'
 alias grm='git remote'
+alias grmv='git rm'
 alias gcf='git config'
-alias gst='git status'
-alias grs='git restore'
+alias gsts='git stash'
+alias gstat='git status'
 alias gf='git fetch'
 alias gt='git tag'
 # cd to a git repository top
