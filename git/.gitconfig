@@ -27,3 +27,5 @@
 [http]
 	#sslbackend = openssl
 	sslVerify = true
+[include]
+	path = ~/.gitconfig.local
