@@ -2,18 +2,14 @@
 
 ## Intro :information_source:
 
-A place to put some of my **dotfiles**.  
+A place to put some of my **dotfiles**.
 More complex config (such as [NeoVim](https://github.com/suxyio/Nvim_Conf)) are in my other repos.
 
 ## Usage :calling:
 
-**[GNU Stow](https://www.gnu.org/software/stow)** is recommended.  
-Run
+**[GNU Stow](https://www.gnu.org/software/stow)** is recommended.
 
-```bash
-stow foo
-```
+You can use the simple install script (`install.sh`) to stow all.
 
-in this directory  
-Where `foo` is the package you wanna link.  
-For example: `stow zshrc` links the `zshrc` package.
+> [!NOTE]
+> The `archive` directory is for my old dotfiles, as _good old memories_, so won't stow them.
