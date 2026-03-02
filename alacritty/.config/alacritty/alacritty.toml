@@ -1,4 +1,5 @@
 [window]
+dimensions = { columns = 95, lines = 24 }
 dynamic_padding = true
 opacity = 0.8
 
@@ -17,6 +18,25 @@ hide_when_typing = true
 
 [keyboard]
 bindings = [
+  # copy & paste
   { key = "C", mods = "Super", action = "Copy" },
   { key = "V", mods = "Super", action = "Paste" },
+
+  # vi mode
+  { key = "I", mods = "Super", action = "ToggleViMode" },
+
+  # move
+  { key = "J", mods = "Super", action = "ScrollLineDown" },
+  { key = "K", mods = "Super", action = "ScrollLineUp" },
+
+  # font size
+  { key = "=", mods = "Super", action = "ResetFontSize" },
+  { key = "+", mods = "Super|Shift", action = "IncreaseFontSize" },
+  { key = "-", mods = "Super", action = "DecreaseFontSize" },
+
+  # search
+  { key = "F", mods = "Control", action = "SearchBackward" },
+
+  # send eof to close terminal
+  { key = "D", mods = "Command", chars = "\u0004" },
 ]
