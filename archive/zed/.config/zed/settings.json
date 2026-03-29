@@ -1,0 +1,38 @@
+{
+  "calls": {
+    "mute_on_join": true,
+  },
+  "terminal": {
+    "font_family": "JetBrainsMono Nerd Font",
+  },
+  "use_smartcase_search": true,
+  "prettier": {
+    "allowed": true,
+  },
+  "vim": {
+    "use_smartcase_find": true,
+    "use_system_clipboard": "never",
+    "toggle_relative_line_numbers": false,
+  },
+  "which_key": {
+    "enabled": true,
+  },
+  "vim_mode": true,
+  "ui_font_family": ".ZedSans",
+  "restore_on_startup": "launchpad",
+  "session": {
+    "restore_unsaved_buffers": false,
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "buffer_font_family": "JetBrains Mono",
+  "ui_font_size": 16.0,
+  "buffer_font_size": 15.0,
+  "theme": {
+    "mode": "system",
+    "light": "Gruvbox Light",
+    "dark": "Gruvbox Dark",
+  },
+}

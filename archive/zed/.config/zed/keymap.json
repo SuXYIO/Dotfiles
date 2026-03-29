@@ -1,0 +1,25 @@
+[
+  {
+    "context": "Dock",
+    "bindings": {
+      "; w h": "workspace::ActivatePaneLeft",
+      "; w l": "workspace::ActivatePaneRight",
+      "; w k": "workspace::ActivatePaneUp",
+      "; w j": "workspace::ActivatePaneDown",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == normal",
+    "bindings": {
+      "j k": "vim::NormalBefore",
+      "; f": "file_finder::Toggle",
+      "; w w": "workspace::Save",
+    },
+  },
+]

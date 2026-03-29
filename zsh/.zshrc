@@ -7,8 +7,9 @@ export HISTFILE="$HOME/.zsh_history"
 export HISTSIZE=2048
 export SAVEHIST=2048
 # develop
-export GOPROXY='https://goproxy.io,direct'
+export GOPROXY='https://goproxy.cn,direct'
 export PATH="$PATH:$HOME/.cargo/bin"
+export PATH="$PATH:$HOME/go/bin"
 # lang
 export LANG=en_US.UTF-8
 
@@ -33,7 +34,7 @@ bindkey '^X' edit-command-line
 autoload -Uz zmv
 
 # Plugins
-prefix='/usr/share'
+prefix="${HOME}/.local/share"
 # pls clone the repos manually when installing
 source ${prefix}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ${prefix}/zsh-autosuggestions/zsh-autosuggestions.zsh

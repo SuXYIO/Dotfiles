@@ -8,7 +8,7 @@ history = 4096
 
 [font]
 normal = { family = "JetBrainsMono Nerd Font" }
-size = 13
+size = 14
 
 [cursor]
 style = { blinking = "Always" }
