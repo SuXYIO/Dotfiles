@@ -10,6 +10,7 @@ export SAVEHIST=2048
 export GOPROXY='https://goproxy.cn,direct'
 export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/mybin"
 # lang
 export LANG=en_US.UTF-8
 
@@ -47,14 +48,11 @@ unset prefix
 
 # Tools
 # fzf
-source <(fzf --zsh)
+#source <(fzf --zsh)
 # zoxide
 eval "$(zoxide init zsh)"
-
-# Ohmyposh
-ohmyposh_config="$HOME/.config/ohmyposh/config.toml"
-eval "$(oh-my-posh init zsh --config ${ohmyposh_config})"
-unset ohmyposh_config
+# ohmyposh
+eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
 
 # Aliases & Functions
 # Tools
@@ -93,7 +91,7 @@ alias gstat='git status'
 alias gf='git fetch'
 alias gt='git tag'
 # cd to a git repository top
-cd_project_top() {
+zt() {
 	toplevel="$(git rev-parse --show-toplevel)" || {
 		# failed
 		return 1
@@ -102,7 +100,6 @@ cd_project_top() {
 	cd -- "${toplevel}" || return
 	echo "$toplevel"
 }
-alias zt='cd_project_top'
 # Tmux
 alias t='tmux'
 alias ta='tmux attach'

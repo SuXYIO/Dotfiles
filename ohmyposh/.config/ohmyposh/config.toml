@@ -1,134 +1,138 @@
-console_title_template = "{{ .Shell }} in {{ .Folder }}"
-version = 3
+"$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json"
+version = 4
 final_space = true
 
 [palette]
-  black = "#000000"
-  deepblue = "#001166"
-  deepgreen = "#006611"
-  deepred = "#660000"
-  grey = "#888888"
-  white = "#ffffff"
+# gruvbox dark
+fg0 = '#fbf1c7'
+bg1 = '#3c3836'
+bg3 = '#665c54'
+blue = '#458588'
+aqua = '#689d6a'
+green = '#98971a'
+orange = '#d65d0e'
+purple = '#b16286'
+red = '#cc241d'
+yellow = '#d79921'
 
 [secondary_prompt]
-  template = " "
-  foreground = "p:grey"
-  background = "transparent"
+template = " "
+foreground = "p:orange"
+background = "transparent"
 
 [transient_prompt]
-  template = " "
-  foreground = "p:grey"
-  background = "transparent"
+template = " "
+foreground = "p:orange"
+background = "transparent"
+
+# ==== left prompt ====
 
 [[blocks]]
-  type = "prompt"
-  alignment = "left"
+type = "prompt"
+alignment = "left"
 
-  [[blocks.segments]]
-    leading_diamond = ""
-    trailing_diamond = ""
-    template = " {{ if .WSL }}WSL at {{ end }}{{.Icon}} "
-    foreground = "p:black"
-    background = "p:white"
-    type = "os"
-    style = "diamond"
+[[blocks.segments]]
+type = "os"
+template = " {{.Icon}} "
+foreground = "p:fg0"
+background = "p:orange"
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
 
-    [blocks.segments.properties]
-      cache_duration = "none"
+[blocks.segments.properties]
+cache_duration = "none"
 
-  [[blocks.segments]]
-    leading_diamond = ""
-    template = "  {{ .Path }} "
-    foreground = "p:white"
-    background = "p:black"
-    type = "path"
-    style = "diamond"
+[[blocks.segments]]
+type = "root"
+foreground = "p:fg0"
+background = "p:red"
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
 
-    [blocks.segments.properties]
-      cache_duration = "none"
-      style = "folder"
+[[blocks.segments]]
+type = "path"
+template = "  {{ .Path }} "
+foreground = "p:fg0"
+background = "p:yellow"
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
 
-  [[blocks.segments]]
-    template = " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }} "
-    foreground = "p:black"
-    powerline_symbol = ""
-    background = "p:deepgreen"
-    type = "git"
-    style = "powerline"
-    background_templates = ["{{ if or (.Working.Changed) (.Staging.Changed) }}p:deepgreen{{ end }}", "{{ if and (gt .Ahead 0) (gt .Behind 0) }}p:deepred{{ end }}", "{{ if gt .Ahead 0 }}p:deepgreen{{ end }}", "{{ if gt .Behind 0 }}p:deepred{{ end }}"]
+[blocks.segments.properties]
+cache_duration = "none"
+style = "folder"
 
-    [blocks.segments.properties]
-      branch_icon = " "
-      cache_duration = "none"
-      fetch_stash_count = true
-      fetch_status = true
-      fetch_upstream_icon = true
-      fetch_worktree_count = true
+[[blocks.segments]]
+type = "git"
+template = " {{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }} "
+foreground = "p:fg0"
+background = "p:aqua"
+background_templates = [
+  "{{ if or (.Working.Changed) (.Staging.Changed) }}p:aqua{{ end }}",
+  "{{ if gt .Ahead 0 }}p:blue{{ end }}",
+  "{{ if gt .Behind 0 }}p:red{{ end }}",
+]
+style = "powerline"
+powerline_symbol = ""
 
-  [[blocks.segments]]
-    template = " "
-    foreground = "p:white"
-    powerline_symbol = ""
-    background = "p:deepred"
-    type = "root"
-    style = "powerline"
+[blocks.segments.properties]
+branch_icon = " "
+cache_duration = "none"
 
-    [blocks.segments.properties]
-      cache_duration = "none"
-
-  [[blocks.segments]]
-    leading_diamond = ""
-    trailing_diamond = ""
-    template = " {{ .String }} "
-    foreground = "p:white"
-    background = "p:deepblue"
-    type = "status"
-    style = "diamond"
-    background_templates = ["{{ if gt .Code 0 }}p:deepred{{ end }}"]
-
-    [blocks.segments.properties]
-      always_enabled = true
-      cache_duration = "none"
+# ==== right prompt ====
 
 [[blocks]]
-  type = "rprompt"
-  alignment = "right"
+type = "rprompt"
+alignment = "right"
 
-  [[blocks.segments]]
-    leading_diamond = ""
-    trailing_diamond = ""
-    template = " 󱎫 {{ .FormattedMs }} "
-    foreground = "p:white"
-    background = "p:black"
-    type = "executiontime"
-    style = "diamond"
+[[blocks.segments]]
+type = "status"
+template = " {{ .String }} "
+foreground = "p:fg0"
+background = "p:blue"
+background_templates = ["{{ if gt .Code 0 }}p:red{{ end }}"]
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
 
-    [blocks.segments.properties]
-      cache_duration = "none"
-      style = "roundrock"
-      threshold = 0.0
+[blocks.segments.properties]
+always_enabled = true
+cache_duration = "none"
 
-  [[blocks.segments]]
-    leading_diamond = ""
-    trailing_diamond = ""
-    template = "  {{ .Venv }} "
-    foreground = "p:white"
-    background = "p:deepblue"
-    type = "python"
-    style = "diamond"
+[[blocks.segments]]
+type = "executiontime"
+template = " 󱎫 {{ .FormattedMs }} "
+foreground = "p:fg1"
+background = "p:bg3"
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
 
-  [[blocks.segments]]
-    leading_diamond = ""
-    trailing_diamond = ""
-    #background_templates = [ "{{if eq \"Charging\" .State.String}}p:deepgreen{{end}}", "{{if eq \"Discharging\" .State.String}}#deepred{{end}}", "{{if eq \"Full\" .State.String}}#deepblue{{end}}" ]
-    background_templates = [ "{{if eq \"Charging\" .State.String}}p:deepgreen{{end}}", "{{if eq \"Discharging\" .State.String}}p:deepgreen{{end}}", "{{if eq \"Full\" .State.String}}p:deepblue{{end}}" ]
-    template = "{{ .Icon }}{{ .Percentage }}%"
-    foreground = "p:black"
-    background = "p:deepgreen"
-    type = "battery"
-    style = "diamond"
+[blocks.segments.properties]
+cache_duration = "none"
+threshold = 0.0
 
-    [blocks.segments.properties]
-        discharging_icon = "󰁹 "
-        charging_icon = "󰂄 "
-        charged_icon = "󱟢 "
+[[blocks.segments]]
+type = "python"
+template = "  {{ .Venv }} "
+foreground = "p:fg0"
+background = "p:aqua"
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
+
+[[blocks.segments]]
+type = "battery"
+template = " {{ .Icon }}{{ .Percentage }}% "
+foreground = "p:fg0"
+background = "p:bg1"
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
+
+[blocks.segments.properties]
+discharging_icon = "󰁹 "
+charging_icon = "󰂄 "
+charged_icon = "󱟢 "
