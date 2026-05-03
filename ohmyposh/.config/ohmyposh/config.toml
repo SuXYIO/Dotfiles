@@ -74,8 +74,9 @@ background_templates = [
   "{{ if gt .Ahead 0 }}p:blue{{ end }}",
   "{{ if gt .Behind 0 }}p:red{{ end }}",
 ]
-style = "powerline"
-powerline_symbol = ""
+style = "diamond"
+leading_diamond = ""
+trailing_diamond = ""
 
 [blocks.segments.properties]
 branch_icon = " "

@@ -3,5 +3,5 @@
 for pkg in */ ; do
 	# exclude archive/
     [ "$pkg" = "archive/" ] && continue
-    stow "$pkg"
+    stow -t ~ "$pkg"
 done

@@ -9,6 +9,8 @@ history = 4096
 [font]
 normal = { family = "JetBrainsMono Nerd Font" }
 size = 14
+# align powerline height
+offset = { y = -1 }
 
 [cursor]
 style = { blinking = "Always" }
@@ -39,4 +41,7 @@ bindings = [
 
   # send eof to close terminal
   { key = "D", mods = "Command", chars = "\u0004" },
+
+  # new window
+  { key = "T", mods = "Command", action = "CreateNewWindow" },
 ]

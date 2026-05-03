@@ -58,7 +58,6 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
 # Tools
 alias lg='lazygit'
 alias n='nvim'
-alias grep='grep --color=auto'
 # File operations
 # ls
 alias ls='lsd'
@@ -67,6 +66,8 @@ alias ll='ls -l'
 alias lla='ls -lA'
 # mkdir
 alias md='mkdir'
+# rm
+alias rm='trash'
 # Git
 alias g='git'
 alias ga='git add'
@@ -80,15 +81,11 @@ alias gco='git checkout'
 alias gsw='git switch'
 alias gcl='git clone'
 alias gm='git merge'
-alias gcp='git cherry-pick'
-alias gi='git init'
-alias gr='git reset'
+alias gini='git init'
 alias grm='git remote'
-alias grmv='git rm'
 alias gcf='git config'
-alias gsts='git stash'
+alias gstsh='git stash'
 alias gstat='git status'
-alias gf='git fetch'
 alias gt='git tag'
 # cd to a git repository top
 zt() {
