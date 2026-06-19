@@ -3,9 +3,6 @@ dimensions = { columns = 95, lines = 24 }
 dynamic_padding = true
 opacity = 0.8
 
-[scrolling]
-history = 4096
-
 [font]
 normal = { family = "JetBrainsMono Nerd Font" }
 size = 14

@@ -3,9 +3,8 @@
 export PATH="$PATH:/home/$USER/.local/bin"
 # options
 export EDITOR='nvim'
+export MANPAGER="batcat -plman"
 export HISTFILE="$HOME/.zsh_history"
-export HISTSIZE=2048
-export SAVEHIST=2048
 # develop
 export GOPROXY='https://goproxy.cn,direct'
 export PATH="$PATH:$HOME/.cargo/bin"
@@ -48,7 +47,7 @@ unset prefix
 
 # Tools
 # fzf
-#source <(fzf --zsh)
+source <(fzf --zsh)
 # zoxide
 eval "$(zoxide init zsh)"
 # ohmyposh
@@ -58,16 +57,25 @@ eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/config.toml)"
 # Tools
 alias lg='lazygit'
 alias n='nvim'
+alias dush='du -sh'
+alias copy='wl-copy'
+alias paste='wl-paste'
+alias pyactiv='source .venv/bin/activate'
 # File operations
 # ls
 alias ls='lsd'
 alias la='ls -A'
 alias ll='ls -l'
 alias lla='ls -lA'
+alias lls='lsd -l --total-size'
+alias tree='lsd --tree'
+alias trea='lsd --tree -A'
 # mkdir
 alias md='mkdir'
 # rm
 alias rm='trash'
+# cat
+alias bat='batcat'
 # Git
 alias g='git'
 alias ga='git add'
@@ -101,23 +109,3 @@ zt() {
 alias t='tmux'
 alias ta='tmux attach'
 alias tl='tmux ls'
-
-# lazyload conda
-conda() {
-	unfunction conda
-	# >>> conda initialize >>>
-	# !! Contents within this block are managed by 'conda init' !!
-	__conda_setup="$("$HOME/miniconda3/bin/conda" 'shell.zsh' 'hook' 2> /dev/null)"
-	if [ $? -eq 0 ]; then
-		eval "$__conda_setup"
-	else
-		if [ -f "$HOME/miniconda3/etc/profile.d/conda.sh" ]; then
-			. "$HOME/miniconda3/etc/profile.d/conda.sh"
-		else
-			export PATH="$HOME/miniconda3/bin:$PATH"
-		fi
-	fi
-	unset __conda_setup
-	# <<< conda initialize <<<
-	conda "$@"
-}
